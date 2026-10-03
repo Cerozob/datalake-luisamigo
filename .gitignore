@@ -1,7 +1,50 @@
+# --- Entornos virtuales de Python ---
+# .venv es el nombre que usa el README; los otros son variantes comunes.
 .venv/
-cdk.out/
-.build/
+venv/
+env/
+ENV/
+
+# --- Python ---
 __pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- CDK ---
+cdk.out/
+.cdk.staging/
+# OJO: cdk.context.json SÍ se versiona. Guarda el resultado de los lookups
+# para que el synth sea reproducible en otra máquina.
+
+# --- Datos del laboratorio ---
+# Los CSV de Kaggle (~20 MB) los descarga cada quien; no van al repo.
 data/*
 !data/README.md
+# Carpeta que genera el synth a partir de data/.
+.build/
+
+# --- Node (sólo si instalas el CDK CLI en local en vez de con -g) ---
+node_modules/
+
+# --- Secretos: nunca al repo ---
+.env
+.env.*
+*.pem
+
+# --- Archivos comprimidos (archive.zip de Kaggle, lab-f1-cdk.zip para CloudShell) ---
 *.zip
+
+# --- Basura del sistema operativo ---
+# desktop.ini lo crea OneDrive, que es donde vive este proyecto.
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# --- Editores ---
+.idea/
+# .vscode/ se deja versionable a propósito: así puedes compartir ajustes
+# recomendados con la clase. Descoméntalo si prefieres no publicarlos.
+# .vscode/
